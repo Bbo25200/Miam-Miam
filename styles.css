@@ -1,22 +1,30 @@
 :root {
-  --bg: #fff8ed;
-  --primary: #a34d2f;
+  --bg: #fff0dc;
+  --primary: #c4a32f;
   --text: #35251e;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: #fff0dc !important;
+  color: #35251e;
+}
+
+header {
+  background: #fff0dc !important;
 }
 
 .primary {
-  background: var(--primary);
-  color: white;
-  border-radius: 12px;
+  background: #c4a32f !important;
+  color: white !important;
+  border-radius: 14px !important;
 }
 
 .card {
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 3px 12px #35251e12;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 15px #35251e25;
+}
+
+h2 {
+  color: #9b5437;
 }
