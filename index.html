@@ -1,5 +1,32 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fff8ed"><link rel="manifest" href="./manifest.webmanifest"><title>Miam Miam</title><link rel="stylesheet" href="./style.css"><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#35251e;background:#fff8ed}*{box-sizing:border-box}body{margin:0}header{position:sticky;top:0;background:#fff8ed;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #eadbc9;z-index:2}header strong{font-size:23px}header button{font-size:28px}button{border:0;background:transparent;cursor:pointer;color:inherit}main{padding:16px 16px 110px;max-width:650px;margin:auto}h2{margin:8px 0 15px;font-size:23px}h3{margin:22px 0 10px}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.card{background:white;border:1px solid #e9ddce;border-radius:14px;padding:14px;margin:9px 0}.item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 4px;border-bottom:1px solid #eee0d3}.item button:first-child{text-align:left;flex:1;font-size:16px}.muted{color:#7d7068;font-size:13px}.primary{background:#9b5437;color:white;padding:11px 15px;border-radius:10px;font-weight:650}.secondary{background:#f2e6d9;padding:10px 12px;border-radius:9px}input,select,textarea{font:inherit;padding:11px;border:1px solid #d6c7b9;border-radius:9px;min-width:0;background:white}input[type=text],input[type=number],textarea{width:100%}label{display:block;margin:12px 0 5px;font-weight:600;font-size:14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.tabs{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5d9cb;display:grid;grid-template-columns:repeat(6,1fr);padding:9px 2px max(10px,env(safe-area-inset-bottom));z-index:2}.tabs button{font-size:10px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0}.tabs .ico{font-size:22px}.tabs .active{color:#a34d2f;font-weight:bold}.hidden{display:none}.pill{display:inline-block;background:#f2e6d9;border-radius:20px;padding:4px 8px;font-size:12px}.danger{color:#b23828}.alphabet{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}.alphabet button{font-size:12px;background:#f3e7da;padding:6px;border-radius:5px}small{line-height:1.5}
+
+/* Miam Miam — rafraîchissement visuel uniquement, logique inchangée */
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#352820;background:#fffaf2}
+body{background:linear-gradient(180deg,#fff4df 0,#fffaf2 230px);min-height:100vh}
+header{background:rgba(255,250,242,.97);border-bottom:1px solid #f0dfca;padding:15px 19px;box-shadow:0 3px 18px rgba(98,59,29,.04)}
+header strong{font-size:25px;font-weight:800;letter-spacing:-.7px;color:#793c27}
+header button:first-child{background:#ffebcd;border-radius:15px;width:46px;height:46px;font-size:25px}
+header button:last-child{background:#fff0dc;border-radius:15px;width:46px;height:46px;font-size:23px}
+main{padding:22px 18px 125px;max-width:650px}
+h2{font-size:27px;letter-spacing:-.8px;color:#613724;margin:7px 0 20px}
+h3{color:#74432e;font-size:18px}
+.card{border:1px solid #f0e1d1;border-radius:19px;padding:18px;box-shadow:0 5px 20px rgba(91,55,27,.045)}
+.item{background:#fff;border:1px solid #f1e5d7;border-radius:13px;margin:9px 0;padding:14px 13px;box-shadow:0 2px 9px rgba(91,55,27,.035)}
+.item button:first-child{font-weight:600;color:#493227}
+.primary{background:#a95435;color:#fff;padding:13px 18px;border-radius:13px;box-shadow:0 4px 12px rgba(169,84,53,.17)}
+.secondary{background:#f7e8d7;color:#77432e;padding:12px 14px;border-radius:12px}
+input,select,textarea{border:1px solid #e5d3bf;border-radius:12px;padding:13px;background:#fff;outline-color:#c98158}
+label{color:#624638;font-weight:650}
+.muted{color:#8a7669}
+.alphabet{gap:6px;margin:13px 0 17px}
+.alphabet button{background:#fff;border:1px solid #eedbc5;border-radius:9px;padding:8px 9px;color:#8b5239;font-weight:650}
+.pill{background:#fff0db;color:#8e4e31;padding:5px 10px}
+.tabs{background:rgba(255,255,255,.98);border-top:1px solid #f0e2d3;padding:10px 3px max(12px,env(safe-area-inset-bottom));box-shadow:0 -5px 22px rgba(73,42,20,.045)}
+.tabs button{font-size:10px;color:#8e7d70;gap:5px}
+.tabs .ico{font-size:23px}
+.tabs .active{color:#a95435;font-weight:800}
+@media(max-width:390px){main{padding-left:13px;padding-right:13px}.tabs button{font-size:9px}.tabs .ico{font-size:21px}}
 </style></head><body><header><button aria-label="Accueil" onclick="go('recettes')">🍞</button><strong>Miam Miam</strong><button aria-label="Liste de courses" onclick="go('courses')">🛒</button></header><main id="app"></main><nav class="tabs" id="tabs"></nav><script>
 const sections=[['recettes','👨‍🍳','Recettes'],['cocktails','🍸','Cocktails'],['epices','🌶️','Épices'],['frigo','🧊','Frigo'],['calendrier','📅','Calendrier'],['reglages','⚙️','Réglages']];
 let db;try{db=JSON.parse(localStorage.getItem('miamV1')||'null')}catch(e){}
