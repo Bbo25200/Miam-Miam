@@ -356,4 +356,134 @@ function applyRecipeScan(){
  alert('Fiche préremplie : vérifie les ingrédients, quantités et étapes avant d’enregistrer. Les informations non reconnues restent à compléter.');
 }
 
+
+/* Interface multilingue : les textes saisis par l’utilisateur restent intacts. */
+const miamTranslations={"Réglages": {"en": "Settings", "es": "Ajustes"}, "Recettes": {"en": "Recipes", "es": "Recetas"}, "Cocktails": {"en": "Cocktails", "es": "Cócteles"}, "Épices": {"en": "Spices", "es": "Especias"}, "Frigo": {"en": "Fridge", "es": "Nevera"}, "Calendrier": {"en": "Calendar", "es": "Calendario"}, "Mes recettes": {"en": "My recipes", "es": "Mis recetas"}, "Mes cocktails": {"en": "My cocktails", "es": "Mis cócteles"}, "Mes épices": {"en": "My spices", "es": "Mis especias"}, "Apparence": {"en": "Appearance", "es": "Apariencia"}, "Choisis le thème de Miam Miam.": {"en": "Choose the Miam Miam theme.", "es": "Elige el tema de Miam Miam."}, "Clair ☀️": {"en": "Light ☀️", "es": "Claro ☀️"}, "Sombre 🌙": {"en": "Dark 🌙", "es": "Oscuro 🌙"}, "Automatique": {"en": "Automatic", "es": "Automático"}, "Sauvegarder les données": {"en": "Back up data", "es": "Guardar los datos"}, "Exporte tes recettes, listes et repas dans un fichier JSON.": {"en": "Export your recipes, lists and meals to a JSON file.", "es": "Exporta tus recetas, listas y comidas a un archivo JSON."}, "Télécharger une sauvegarde": {"en": "Download a backup", "es": "Descargar copia de seguridad"}, "Restaurer une sauvegarde": {"en": "Restore a backup", "es": "Restaurar copia de seguridad"}, "Données stockées sur cet appareil et dans ce navigateur. Effacer les données du navigateur peut les supprimer : pense à exporter régulièrement une sauvegarde.": {"en": "Data is stored on this device and in this browser. Clearing browser data may delete it: remember to export a backup regularly.", "es": "Los datos se guardan en este dispositivo y navegador. Borrar los datos del navegador puede eliminarlos: exporta una copia de seguridad regularmente."}, "Langue": {"en": "Language", "es": "Idioma"}, "La langue de l’application change immédiatement.": {"en": "The app language changes immediately.", "es": "El idioma de la aplicación cambia al instante."}, "Français": {"en": "French", "es": "Francés"}, "Anglais": {"en": "English", "es": "Inglés"}, "Espagnol": {"en": "Spanish", "es": "Español"}, "Toutes": {"en": "All", "es": "Todas"}, "Entrées": {"en": "Starters", "es": "Entrantes"}, "Plats": {"en": "Main courses", "es": "Platos principales"}, "Desserts": {"en": "Desserts", "es": "Postres"}, "Pain / Gâteau": {"en": "Bread / Cake", "es": "Pan / Pastel"}, "Condiment": {"en": "Condiments", "es": "Condimentos"}, "Apéritif": {"en": "Appetizers", "es": "Aperitivos"}, "Goûter": {"en": "Snacks", "es": "Meriendas"}, "Sauces": {"en": "Sauces", "es": "Salsas"}, "Accompagnements": {"en": "Side dishes", "es": "Guarniciones"}, "Autres": {"en": "Other", "es": "Otros"}, "Ajouter": {"en": "Add", "es": "Añadir"}, "Modifier": {"en": "Edit", "es": "Editar"}, "Supprimer": {"en": "Delete", "es": "Eliminar"}, "Enregistrer": {"en": "Save", "es": "Guardar"}, "Annuler": {"en": "Cancel", "es": "Cancelar"}, "Retour": {"en": "Back", "es": "Volver"}, "← Retour": {"en": "← Back", "es": "← Volver"}, "Ingrédients": {"en": "Ingredients", "es": "Ingredientes"}, "Préparation": {"en": "Preparation", "es": "Preparación"}, "Matériel": {"en": "Equipment", "es": "Utensilios"}, "Origine": {"en": "Origin", "es": "Origen"}, "Temps (minutes)": {"en": "Time (minutes)", "es": "Tiempo (minutos)"}, "Rendement de la recette": {"en": "Recipe yield", "es": "Rendimiento de la receta"}, "Personnes": {"en": "People", "es": "Personas"}, "Pièces": {"en": "Pieces", "es": "Piezas"}, "Grammes": {"en": "Grams", "es": "Gramos"}, "Petits pots": {"en": "Small jars", "es": "Tarritos"}, "Verres": {"en": "Glasses", "es": "Vasos"}, "Bols": {"en": "Bowls", "es": "Cuencos"}, "Pot": {"en": "Jar", "es": "Tarro"}, "Liste de courses": {"en": "Shopping list", "es": "Lista de la compra"}, "Ajouter à la liste de courses": {"en": "Add to shopping list", "es": "Añadir a la lista de la compra"}, "Rechercher": {"en": "Search", "es": "Buscar"}, "Recherche": {"en": "Search", "es": "Buscar"}, "Rechercher une recette": {"en": "Search for a recipe", "es": "Buscar una receta"}, "Nom": {"en": "Name", "es": "Nombre"}, "Quantité": {"en": "Quantity", "es": "Cantidad"}, "Unité": {"en": "Unit", "es": "Unidad"}, "Catégorie": {"en": "Category", "es": "Categoría"}, "Cuisine": {"en": "Cuisine", "es": "Cocina"}, "Notes": {"en": "Notes", "es": "Notas"}, "Photo": {"en": "Photo", "es": "Foto"}, "Ajouter un ingrédient": {"en": "Add an ingredient", "es": "Añadir un ingrediente"}, "Ajouter une étape": {"en": "Add a step", "es": "Añadir un paso"}, "Nouvelle recette": {"en": "New recipe", "es": "Nueva receta"}, "Modifier la recette": {"en": "Edit recipe", "es": "Editar receta"}, "En stock": {"en": "In stock", "es": "En existencias"}, "À acheter": {"en": "To buy", "es": "Por comprar"}, "Calendrier des repas": {"en": "Meal calendar", "es": "Calendario de comidas"}, "Calendrier des saisons": {"en": "Seasonal calendar", "es": "Calendario de temporada"}, "Fruits": {"en": "Fruit", "es": "Frutas"}, "Légumes": {"en": "Vegetables", "es": "Verduras"}, "Aujourd’hui": {"en": "Today", "es": "Hoy"}, "Ajouter un repas": {"en": "Add a meal", "es": "Añadir una comida"}, "Aucune recette": {"en": "No recipes", "es": "Sin recetas"}, "Aucun résultat": {"en": "No results", "es": "Sin resultados"}, "Fermer": {"en": "Close", "es": "Cerrar"}, "Valider": {"en": "Confirm", "es": "Confirmar"}, "Continuer": {"en": "Continue", "es": "Continuar"}, "Importer": {"en": "Import", "es": "Importar"}, "Scanner une recette": {"en": "Scan a recipe", "es": "Escanear una receta"}, "Prendre une photo": {"en": "Take a photo", "es": "Tomar una foto"}, "Choisir une photo": {"en": "Choose a photo", "es": "Elegir una foto"}, "Texte reconnu": {"en": "Recognized text", "es": "Texto reconocido"}, "Vérifier le texte": {"en": "Review text", "es": "Revisar texto"}, "Créer la recette": {"en": "Create recipe", "es": "Crear receta"}, "Liste vide": {"en": "Empty list", "es": "Lista vacía"}, "Nouvelle liste": {"en": "New list", "es": "Nueva lista"}, "Mes listes": {"en": "My lists", "es": "Mis listas"}, "Supprimer la liste": {"en": "Delete list", "es": "Eliminar lista"}, "Ajouter un produit": {"en": "Add an item", "es": "Añadir un producto"}, "Disponible": {"en": "Available", "es": "Disponible"}, "Manquant": {"en": "Missing", "es": "Faltante"}, "Recettes possibles": {"en": "Possible recipes", "es": "Recetas posibles"}, "Ingrédients manquants": {"en": "Missing ingredients", "es": "Ingredientes que faltan"}, "Sauvegarde invalide": {"en": "Invalid backup", "es": "Copia de seguridad inválida"}, "Format incorrect": {"en": "Invalid format", "es": "Formato incorrecto"}, "Ma liste": {"en": "My list", "es": "Mi lista"}};
+const miamOriginalText=new WeakMap();
+const miamOriginalAttrs=new WeakMap();
+let miamLang=localStorage.getItem('miamLanguage')||'fr';
+function setMiamLanguage(lang){
+ if(!['fr','en','es'].includes(lang))return;
+ miamLang=lang;localStorage.setItem('miamLanguage',lang);
+ document.documentElement.lang=lang;
+ translateMiamInterface();
+}
+function translateMiamInterface(){
+ document.documentElement.lang=miamLang;
+ const root=document.body;
+ const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+ let node;
+ while((node=walker.nextNode())){
+  const parent=node.parentElement;
+  if(!parent||parent.closest('script,style,textarea,[contenteditable="true"]'))continue;
+  const old=miamOriginalText.has(node)?miamOriginalText.get(node):node.nodeValue;
+  if(!miamOriginalText.has(node))miamOriginalText.set(node,old);
+  const trimmed=old.trim(),entry=miamTranslations[trimmed];
+  if(!entry)continue;
+  const next=miamLang==='fr'?trimmed:entry[miamLang];
+  const result=old.replace(trimmed,next);
+  if(node.nodeValue!==result)node.nodeValue=result;
+ }
+ document.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el=>{
+  for(const attr of ['placeholder','aria-label','title']){
+   if(!el.hasAttribute(attr))continue;
+   let originals=miamOriginalAttrs.get(el);
+   if(!originals){originals={};miamOriginalAttrs.set(el,originals)}
+   if(!(attr in originals))originals[attr]=el.getAttribute(attr);
+   const original=originals[attr],entry=miamTranslations[original];
+   if(entry){const next=miamLang==='fr'?original:entry[miamLang];if(el.getAttribute(attr)!==next)el.setAttribute(attr,next)}
+  }
+ });
+}
+const miamLanguageObserver=new MutationObserver(()=>translateMiamInterface());
+miamLanguageObserver.observe(document.body,{childList:true,subtree:true});
+const miamSettingsOriginal=settings;
+settings=function(){
+ miamSettingsOriginal();
+ const card=document.createElement('div');
+ card.className='card';
+ card.innerHTML='<div class="theme-choice"><div><h3 style="margin:0 0 5px">Langue</h3><p class="muted" style="margin:0">La langue de l’application change immédiatement.</p></div><select id="miam-language" aria-label="Langue"><option value="fr">Français</option><option value="en">Anglais</option><option value="es">Espagnol</option></select></div>';
+ const first=app.querySelector('.card');
+ if(first)first.after(card);else app.appendChild(card);
+ const select=card.querySelector('select');
+ select.value=miamLang;
+ select.addEventListener('change',()=>setMiamLanguage(select.value));
+ translateMiamInterface();
+};
+translateMiamInterface();
+
+
+/* Traduction à la demande des fiches : l'original n'est jamais modifié. */
+const miamRecipeTranslationCache=new Map();
+const miamOriginalRecipeDetail=recipeDetail;
+let miamTranslationRequest=0;
+async function miamTranslateText(text,lang){
+ if(!text||!text.trim()||lang==='fr')return text;
+ const key=lang+'|'+text;
+ if(miamRecipeTranslationCache.has(key))return miamRecipeTranslationCache.get(key);
+ // MyMemory accepte des requêtes courtes ; aucune clé n'est nécessaire.
+ const pieces=text.match(/[\s\S]{1,400}/g)||[];
+ const translated=[];
+ for(const piece of pieces){
+  const url='https://api.mymemory.translated.net/get?q='+encodeURIComponent(piece)+'&langpair=fr|'+encodeURIComponent(lang);
+  const response=await fetch(url);
+  if(!response.ok)throw Error('Service de traduction indisponible ('+response.status+')');
+  const data=await response.json();
+  if(data.responseStatus!==200||!data.responseData?.translatedText)throw Error(data.responseDetails||'Traduction indisponible');
+  const el=document.createElement('textarea');
+  el.innerHTML=data.responseData.translatedText;
+  translated.push(el.value);
+ }
+ const value=translated.join('');
+ miamRecipeTranslationCache.set(key,value);
+ return value;
+}
+async function miamTranslateRecipeDetail(){
+ const r=db.recettes.find(x=>x.id===detailId),lang=miamLang;
+ if(!r||lang==='fr')return;
+ const request=++miamTranslationRequest;
+ const status=document.getElementById('miam-recipe-translation-status');
+ if(status)status.textContent=lang==='en'?'Translating recipe…':'Traduciendo receta…';
+ const box=document.getElementById('miam-recipe-translation');
+ if(!box)return;
+ const steps=recipeSteps(r);
+ const fields=[r.nom||'',r.notes||'',r.origine||'',...((r.ingredients||[]).map(x=>x.nom||'')),...steps];
+ try{
+  const translated=[];
+  for(const item of fields){
+   if(request!==miamTranslationRequest||detailId!==r.id||miamLang!==lang)return;
+   translated.push(await miamTranslateText(item,lang));
+  }
+  if(request!==miamTranslationRequest||detailId!==r.id||miamLang!==lang)return;
+  const safe=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let offset=3;
+  const ing=(r.ingredients||[]).map((x,i)=>'<li>'+safe(translated[offset+i])+' — '+safe(x.qte??'')+' '+safe(x.unite||'')+'</li>').join('');
+  offset+=(r.ingredients||[]).length;
+  const st=steps.map((x,i)=>'<li>'+safe(translated[offset+i])+'</li>').join('');
+  box.innerHTML='<h3>'+safe(translated[0])+'</h3>'+
+   (translated[2]?'<p>'+safe(translated[2])+'</p>':'')+
+   '<h3>'+(lang==='en'?'Ingredients':'Ingredientes')+'</h3><ul>'+ing+'</ul>'+
+   '<h3>'+(lang==='en'?'Preparation':'Preparación')+'</h3><ol>'+st+'</ol>'+
+   (translated[1]?'<h3>'+(lang==='en'?'Notes':'Notas')+'</h3><p>'+safe(translated[1])+'</p>':'');
+  if(status)status.textContent=lang==='en'?'Automatic translation — review before cooking.':'Traducción automática — revísala antes de cocinar.';
+ }catch(e){
+  if(status)status.textContent=(lang==='en'?'Translation failed: ':'Error de traducción: ')+(e.message||e);
+ }
+}
+recipeDetail=function(){
+ miamTranslationRequest++;
+ miamOriginalRecipeDetail();
+ if(miamLang==='fr')return;
+ const box=document.createElement('section');
+ box.className='recipe-detail-card';
+ box.innerHTML='<p id="miam-recipe-translation-status" class="muted"></p><div id="miam-recipe-translation"></div>';
+ app.prepend(box);
+ miamTranslateRecipeDetail();
+};
+const miamOldSetLanguage=setMiamLanguage;
+setMiamLanguage=function(lang){
+ miamOldSetLanguage(lang);
+ if(page==='recettes'&&detailId&&!editId)recipeDetail();
+};
+
 </script></body></html>
